@@ -1,2 +1,4 @@
 alias ccc="cc -Wall -Werror -Wextra *.c && ./a.out"
 alias cw="cc -Wall -Werror -Wextra"
+alias francinette="/root/francinette/tester.sh"
+alias paco="/root/francinette/tester.sh"

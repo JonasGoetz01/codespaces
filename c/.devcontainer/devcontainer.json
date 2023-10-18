@@ -3,7 +3,32 @@
 {
 	"name": "C-Codespace",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "jonasgoetz01/codespaces-c:latest"
+	"image": "jonasgoetz01/codespaces-c:latest",
+
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools-themes",
+				"ms-vscode-remote.remote-containers",
+				"GitHub.github-vscode-theme",
+				"keyhr.42-c-format",
+				"DoKca.42-ft-count-line",
+				"kube.42header",
+				"MariusvanWijk-JoppeKoers.codam-norminette-3",
+				"mitaki28.vscode-clang",
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"franneck94.c-cpp-runner",
+				"twxs.cmake",
+				"ms-vscode.cmake-tools",
+				"vadimcn.vscode-lldb",
+				"ms-vscode.makefile-tools"
+			]
+		}
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

@@ -16,6 +16,9 @@ RUN apt install wget -y
 
 RUN apt install git -y
 
+RUN apt install python3 -y && \
+	apt install python3-pip -y
+
 RUN git config --global user.name "jgotz" && \
 	git config --global user.email "jonas.goetz01@web.de"
 
