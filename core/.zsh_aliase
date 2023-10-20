@@ -1,0 +1,2 @@
+alias ccc="cc -Wall -Werror -Wextra *.c && ./a.out"
+alias cw="cc -Wall -Werror -Wextra"
