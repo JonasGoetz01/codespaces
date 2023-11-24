@@ -1,28 +1,51 @@
-FROM jonasgoetz01/codespaces-base:latest
+FROM ubuntu:latest
 
-RUN apt update && \
-	apt dist-upgrade -y && \
-	apt full-upgrade
+RUN apt update && apt upgrade -y
 
-RUN apt install build-essential -y
+RUN apt install curl -y
 
-COPY .zsh_aliase /root/.zsh_aliase
+RUN apt install nano -y
 
-RUN cat ~/.zsh_aliase >> ~/.zshrc
+RUN apt install exa -y
 
-RUN apt install clang -y
+RUN apt install wget -y
 
-RUN python3 -m pip install --upgrade pip setuptools && \
-	python3 -m pip install norminette
+RUN apt install zsh -y
 
-RUN pip3 install c_formatter_42
-
-RUN apt-get -y install sudo
-
-RUN apt-get install -y lsb-release
+RUN apt install python3 -y && \
+	apt install python3-pip -y
 
 RUN apt-get install python-dev-is-python3 -y
 
 RUN apt install python3.10-venv -y
 
-RUN zsh -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)" | true
+
+RUN apt install git -y
+RUN git config --global user.name "vsivanat" && \
+	git config --global user.email "vsivanat@student.42.fr"
+
+RUN apt install build-essential -y 
+
+RUN apt install lsb-release -y
+
+RUN apt install sudo -y
+
+COPY .zsh_aliase /root/.zsh_aliase
+
+RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh && \
+	chmod 755 install.sh && \
+	./install.sh && \
+	rm install.sh
+
+RUN chsh -s zsh
+
+RUN cat ~/.zsh_aliase >> ~/.zshrc
+
+COPY .nanorc /root/.nanorc
+
+RUN python3 -m pip install --upgrade pip setuptools && \
+	python3 -m pip install norminette
+
+RUN bash -c "$(curl -fsSL https://raw.github.com/xicodomingues/francinette/master/bin/install.sh)"
+
+CMD ["zsh"]

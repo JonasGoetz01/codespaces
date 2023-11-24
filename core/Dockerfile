@@ -19,6 +19,10 @@ RUN pip3 install c_formatter_42
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+RUN apt install libxkbcommon-dev libwayland-cursor0 libwayland-dev -y
+
+RUN apt install netcat -y
+
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 RUN cargo --help
